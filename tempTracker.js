@@ -59,9 +59,9 @@ class TempTracker {
 
 //Insert value for calculating output
 var temp = new TempTracker();
-temp.insert(10);
-temp.insert(25);
-temp.insert(22);
+temp.insert(12);
+temp.insert(37);
+temp.insert(18);
 temp.insert(80);
 temp.insert(80);
 
