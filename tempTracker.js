@@ -3,6 +3,7 @@ class TempTracker {
         //  min and max value
         this.minTemp = null;
         this.maxTemp = null;
+        this.array = [];
 
         //  mode value
         this.value = new Array(150).fill(0);
@@ -16,6 +17,10 @@ class TempTracker {
     }
 
     insert(temperatureValue) {
+        if(typeof temperatureValue === "string" ){
+    		this.array.push(temperatureValue);             
+           // return false;
+        }else{
 
         //  min and max calculation 
         if (this.maxTemp === null || temperatureValue > this.maxTemp) {
@@ -37,7 +42,7 @@ class TempTracker {
         this.totalSum += temperatureValue;
         this.mean = this.totalSum / this.numberOfValues;
 
-
+        }
     }
     //  Return Max value
     get_max() {
@@ -55,17 +60,24 @@ class TempTracker {
     get_mode() {
         return this.mode;
     }
+    //  Return String value
+    get_string() {
+        return this.array;
+    }
 }
 
 //Insert value for calculating output
 var temp = new TempTracker();
 temp.insert(12);
+temp.insert('hi');
 temp.insert(37);
 temp.insert(18);
 temp.insert(80);
 temp.insert(80);
 
 // Showing output values
+console.log('Please Enter Numbers Only', temp.get_string());
+console.log('.....................');
 console.log('Min', temp.get_min());
 console.log('Max', temp.get_max());
 console.log('Mean', temp.get_mean());
